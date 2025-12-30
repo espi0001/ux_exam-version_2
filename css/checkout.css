@@ -1,0 +1,52 @@
+@import "styles.css";
+@import "_form.css";
+@import "_dialog.css";
+
+/* ------- CHECKOUT STYLING ------- */
+main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.auth-container {
+  justify-self: center;
+}
+
+.btn {
+  gap: 0.5rem;
+}
+
+#frmCheckout {
+  legend {
+    font-size: var(--fontSize-body-medium);
+    font-weight: 600;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .form-group {
+    label {
+      font-weight: 400;
+    }
+  }
+
+  .expiry_security_wrapper {
+    display: grid;
+    gap: 1.25rem;
+
+    @media (min-width: 500px) {
+      display: flex;
+    }
+
+    @media (min-width: 764px) {
+      justify-content: space-between;
+    }
+  }
+  
+  #checkoutBtn {
+    padding-top: 1rem;
+    
+  }
+}
+

@@ -1,0 +1,358 @@
+@import "variables.css";
+
+/* ------- STYLING ------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+/* 
+    Usual break points
+    - Mobile: 320px, 480px 
+    - Tablet: 768px 
+    - Desktop 1024px 
+    - TV: 1200px 
+
+    Touch Interactions
+    - Google → 48×48 px (best according to Arturo)
+*/
+
+body {
+  max-width: var(--maxWidth);
+  margin: auto;
+  background-color: var(--bgColorPrimary);
+  color: var(--colorTextPrimary);
+  font-family: var(--fontMain);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  *:focus-visible {
+    outline: 2px solid var(--colorFocus);
+    outline-offset: 4px;
+  }
+
+  main {
+    flex: 1;
+    padding: 2.25rem 1.25rem;
+
+    @media screen and (min-width: 768px) {
+      padding: 1.25rem 2rem;
+    }
+
+    @media screen and (min-width: 1024px) {
+      padding: 1.25rem 4rem;
+    }
+
+    > header {
+      margin-bottom: 1.5rem;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+
+  /* ---- FONTS ---- */
+  h1,
+  h2 {
+    font-family: var(--fontHeader);
+    max-width: 64ch;
+  }
+
+  h1 {
+    text-wrap-mode: nowrap;
+    font-size: var(--fontSize-h1);
+  }
+
+  h2 {
+    font-size: var(--fontSize-h2);
+  }
+
+  h3,
+  h4 {
+    font-size: var(--fontSize-h3_h4);
+    max-width: 64ch;
+  }
+
+  h4 {
+    font-weight: 400;
+  }
+
+  p {
+    font-size: var(--fontSize-body);
+    max-width: 64ch;
+  }
+
+  /* ---- NAVIGATION ---- */
+  > header {
+    padding: 1rem 1.25rem 0 1.25rem;
+    @media (min-width: 520px) {
+      padding: 1rem 1.25rem;
+    }
+    border-bottom: 1px solid var(--colorBorder);
+
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (min-width: 520px) {
+      flex-direction: row;
+    }
+    @media screen and (min-width: 768px) {
+      margin-bottom: 3rem;
+    }
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      @media (min-width: 520px) {
+        flex-direction: row;
+      }
+
+      h1 {
+        display: flex;
+
+        a {
+          display: flex;
+          align-items: center;
+          min-width: var(--minTouchWidth);
+          min-height: var(--minTouchHeight);
+        }
+      }
+    }
+
+    .all_products_desk {
+      display: none;
+
+      @media (min-width: 520px) {
+        display: block;
+      }
+    }
+    .all_products_mobile {
+      border-top: 1px solid var(--colorHeaderSeperator);
+      width: 100%;
+      text-align: center;
+      @media (min-width: 520px) {
+        display: none;
+      }
+    }
+
+    .all_products_desk,
+    .all_products_mobile {
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a {
+          display: flex;
+          align-items: center;
+          min-width: var(--minTouchWidth);
+          min-height: var(--minTouchHeight);
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--colorTextPrimary);
+    }
+
+    nav {
+      > ul {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        list-style: none;
+
+        > li {
+          display: flex;
+
+          .cart_nav {
+            min-width: var(--minTouchWidth);
+            min-height: var(--minTouchHeight);
+          }
+        }
+
+        /* For cart in navigation */
+        #cart {
+          a {
+            position: relative;
+            display: inline-block;
+
+            .cart-counter {
+              position: absolute;
+              top: 14px;
+              right: -8px;
+              padding: 0 4px;
+
+              box-sizing: border-box;
+
+              background-color: var(--buttonPrimaryColor);
+              color: var(--colorTextSecondary);
+              border-radius: 50%;
+              min-width: var(--cartCounterSize);
+              height: var(--cartCounterSize);
+
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              font-weight: bold;
+              line-height: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* ---- FOOTER ---- */
+  > footer {
+    padding: 3rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    border-top: 1px solid var(--colorBorder);
+
+    @media screen and (min-width: 768px) {
+      padding: 5rem 2.625;
+      margin-top: 3rem;
+    }
+
+    h2 {
+      display: flex;
+      font-family: var(--fontHeader);
+      span {
+        color: var(--buttonPrimaryColor);
+      }
+
+      > a {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-decoration: none;
+        color: var(--colorTextPrimary);
+        min-height: var(--minTouchHeight);
+        min-width: var(--minTouchWidth);
+      }
+    }
+  }
+}
+
+/* ---- BUTTONS ---- */
+/* Main styling for buttons */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--minTouchHeight);
+  min-width: var(--minTouchWidth);
+  width: 100%;
+  border-radius: 0.2rem;
+  transition: background-color 0.3s;
+  border: 2px solid var(--buttonPrimaryColor);
+
+  padding: 0.5721rem;
+  font-size: 1rem;
+  text-align: center;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  > a {
+    text-decoration: none;
+  }
+
+  &:active {
+    background-color: var(--buttonPrimaryColor);
+  }
+}
+
+/* primary btn */
+.primary_btn {
+  background-color: var(--buttonPrimaryColor);
+  color: var(--colorTextSecondary);
+
+  > a {
+    color: var(--colorTextSecondary);
+  }
+
+  &:hover {
+    background-color: transparent;
+    color: var(--colorTextPrimary);
+
+    > a {
+      color: var(--colorTextPrimary);
+    }
+  }
+}
+
+/* secondary btn */
+.secondary_btn {
+  background-color: transparent;
+  color: var(--colorTextPrimary);
+
+  > a {
+    color: var(--colorTextPrimary);
+  }
+
+  &:hover {
+    background-color: var(--buttonPrimaryColor);
+    color: var(--colorTextSecondary);
+
+    > a {
+      color: var(--colorTextSecondary);
+    }
+  }
+}
+
+/* Back button */
+.backBtn {
+  display: flex;
+  color: var(--colorTextPrimary);
+  font-size: var(--fontSize-body-medium);
+  text-decoration: none;
+  padding-bottom: 2rem;
+  width: 100%;
+
+  > a {
+    display: flex;
+    align-items: center;
+    min-width: var(--minTouchWidth);
+    min-height: var(--minTouchHeight);
+    color: var(--colorTextPrimary);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* For hidden things */
+.hidden {
+  display: none;
+}
